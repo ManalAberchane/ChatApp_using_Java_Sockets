@@ -97,7 +97,7 @@ java -jar TCPClient.jar localhost 3000
 
 Running the client with no arguments uses the values from `config.properties`.
 
-> The JARs were built on **[Windows / macOS / Linux]**. Because they bundle
+> The JARs were built on **[Windows 11]**. Because they bundle
 > JavaFX for that operating system, build your own JARs if you use a different one.
 
 ### From source
