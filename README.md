@@ -3,8 +3,8 @@
 Mini Project 1: a group chat application where multiple clients exchange
 messages in real time through a central server, using TCP sockets.
 
-**Author:** [Manal Aberchane]
-**Course:** [CSC 3374 - Adv.Distribut.Programming Paradigms], [Professor El Habib Nfaoui]
+**Author:** Manal Aberchane
+**Course:** CSC 3374 - Adv.Distribut.Programming Paradigms, Professor El Habib Nfaoui
 
 ## Features
 
@@ -97,7 +97,7 @@ java -jar TCPClient.jar localhost 3000
 
 Running the client with no arguments uses the values from `config.properties`.
 
-> The JARs were built on **[Windows 11]**. Because they bundle
+> The JARs were built on **Windows 11**. Because they bundle
 > JavaFX for that operating system, build your own JARs if you use a different one.
 
 ### From source
