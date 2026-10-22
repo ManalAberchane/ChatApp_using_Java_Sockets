@@ -67,6 +67,7 @@ public class ChatServer {
     }
 
     void broadcast(String message) {
+        listener.onLog(message);
         for (ClientHandler c : clients) c.send(message);
     }
 
