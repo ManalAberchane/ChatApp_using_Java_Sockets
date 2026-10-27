@@ -42,7 +42,6 @@ public class ServerApp extends Application implements ServerListener {
         logFlow.setPadding(new Insets(6));
         logScroll = new ScrollPane(logFlow);
         logScroll.setFitToWidth(true);
-        // Auto-scroll to the bottom when new lines arrive
         logFlow.heightProperty().addListener((obs, oldV, newV) -> logScroll.setVvalue(1.0));
 
         userList = new ListView<>(users);
@@ -86,7 +85,6 @@ public class ServerApp extends Application implements ServerListener {
         stage.setScene(new Scene(grid, 750, 450));
         stage.show();
 
-        // Start the server (the model) and give it this window as its listener
         int port = Integer.parseInt(Config.load().getProperty("server.port", "3000"));
         server = new ChatServer(port, this);
         try {
@@ -118,7 +116,6 @@ public class ServerApp extends Application implements ServerListener {
 
                 logFlow.getChildren().addAll(time, name, body);
             } else {
-                // Any other log line (Server Started, Welcome Bob, ...)
                 logFlow.getChildren().add(new Text(message + "\n"));
             }
         });

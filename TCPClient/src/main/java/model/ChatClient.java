@@ -15,17 +15,15 @@ public class ChatClient {
         this.listener = listener;
     }
 
-    /** username may be null or empty, which means READ-ONLY mode */
+
     public void connect(String host, int port, String username) throws IOException {
         socket = new Socket(host, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
         out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
         connected = true;
 
-        // The first line we send is always the username (empty = read-only)
         out.println(username == null ? "" : username.trim());
 
-        // Listen for incoming messages on a background virtual thread
         Thread.ofVirtual().start(this::readLoop);
     }
 

@@ -39,7 +39,6 @@ public class ClientApp extends Application implements MessageListener {
     private int port;
     private ChatClient client;
 
-    // Chat screen controls
     private TextFlow chatFlow;
     private ScrollPane chatScroll;
     private TextField inputField;
@@ -52,7 +51,6 @@ public class ClientApp extends Application implements MessageListener {
     public void start(Stage stage) {
         this.stage = stage;
 
-        // Command-line arguments take priority; otherwise use config.properties
         List<String> args = getParameters().getRaw();
         Properties cfg = Config.load();
         host = args.size() >= 2 ? args.get(0) : cfg.getProperty("server.ip", "localhost");
@@ -70,7 +68,6 @@ public class ClientApp extends Application implements MessageListener {
         if (client != null) client.disconnect();
     }
 
-    // ---------------- Login screen ----------------
 
     private Scene buildLoginScene() {
         Label title = new Label("Join the Chat");
@@ -114,7 +111,7 @@ public class ClientApp extends Application implements MessageListener {
         return new Scene(grid, 360, 260);
     }
 
-    /** Connects on a background thread so the window never freezes */
+
     private void connect(String username, Label errorLabel) {
         errorLabel.setText("Connecting...");
         errorLabel.setTextFill(Color.GRAY);
@@ -133,8 +130,6 @@ public class ClientApp extends Application implements MessageListener {
             }
         });
     }
-
-    // ---------------- Chat screen ----------------
 
     private void showChat(String username) {
         boolean readOnly = username.isEmpty();
@@ -173,17 +168,14 @@ public class ClientApp extends Application implements MessageListener {
         grid.setHgap(8);
         grid.setVgap(8);
 
-        // Row 0: status bar
         grid.add(statusDot, 0, 0);
         grid.add(statusLabel, 1, 0);
         grid.add(modeLabel, 2, 0);
         grid.add(leaveButton, 3, 0);
         GridPane.setHalignment(leaveButton, HPos.RIGHT);
 
-        // Row 1: chat area, spanning all 4 columns
         grid.add(chatScroll, 0, 1, 4, 1);
 
-        // Row 2: input and SEND
         grid.add(inputField, 0, 2, 3, 1);
         grid.add(sendButton, 3, 2);
 
@@ -217,7 +209,6 @@ public class ClientApp extends Application implements MessageListener {
         }
     }
 
-    // ---------------- MessageListener (called from background threads) ----------------
 
     @Override
     public void onMessage(String line) {
@@ -235,7 +226,6 @@ public class ClientApp extends Application implements MessageListener {
                 Text body = new Text(": " + m.group(3) + "\n");
                 chatFlow.getChildren().addAll(time, name, body);
             } else {
-                // Server notices such as "[Server] Bob joined the chat"
                 Text notice = new Text(line + "\n");
                 notice.setFill(Color.DIMGRAY);
                 notice.setFont(Font.font("System", FontPosture.ITALIC, 12));

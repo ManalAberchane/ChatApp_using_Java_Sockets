@@ -125,9 +125,4 @@ client's program arguments to `localhost 3000`.
   "JavaFX runtime components are missing" error in the JARs.
 
 ## Demo video
-
-[Link coming soon]
-
-## Technical post (optional)
-
-[Link coming soon]
+https://alakhawayn365-my.sharepoint.com/:v:/g/personal/m_aberchane_aui_ma/IQATu6b06IkjTIpW0UAw-7BRARtZJ2eqy5fyE7mvjAl5nts?e=y79z3k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
